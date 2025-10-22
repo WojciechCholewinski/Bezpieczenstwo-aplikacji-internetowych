@@ -1,0 +1,2 @@
+This is public information that everyone can access.
+You can read this file without any special permissions.
