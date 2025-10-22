@@ -89,9 +89,9 @@ curl.exe -i "http://localhost:8001/read?file=../secret_file.txt"
 Do sprawozdania dołączono screenshoty:
 
 - `servers_started.png` - serwery uruchomione,
-  ![servers_started](screenshots/servers_started.png)
+  ![servers_started](Screenshots/servers_started.png)
 - `attacks.png` - przeprowadzenie ataków
-  ![attacks](screenshots/attacks.png)
+  ![attacks](Screenshots/attacks.png)
 
 - Output Vulnerable:
 
