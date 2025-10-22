@@ -1,15 +1,13 @@
 # Sprawozdanie - Path Traversal
 
-**Przedmiot:** Bezpieczeństwo aplikacji internetowych
-
 ## 1. Opis podatności
 
 Path Traversal umożliwia odczyt plików spoza dozwolonego katalogu poprzez manipulację ścieżką (np. `../secret_file.txt`).
 
 W zadaniu dostarczone są dwie implementacje:
 
-- **Podatna** - `Podatnosc_Cholewinski.java`
-- **Zabezpieczona** - `Fixed_podatnosc_Cholewinski.java` (wersja blokująca atak i zwracająca HTTP 403).
+- **Podatna** - [Vulnerable.java](Vulnerable.java)
+- **Zabezpieczona** - [SecureFileReader.java](SecureFileReader.java) (wersja blokująca atak i zwracająca HTTP 403).
 
 ---
 
@@ -22,8 +20,8 @@ secret_file.txt
 VulnerabilityLogic.java
 EnvironmentContext.java
 ServerLauncher.java
-Podatnosc_Cholewinski.java
-Fixed_podatnosc_Cholewinski.java
+Vulnerable.java
+SecureFileReader.java
 README.md
 screenshots/
 ```
@@ -32,12 +30,12 @@ screenshots/
 
 ## 3. Krótkie omówienie implementacji
 
-### 3.1 Podatna wersja (`Podatnosc_Cholewinski.java`)
+### 3.1 Podatna wersja (`Vulnerable.java`)
 
 - Konstrukcja ścieżki: `safeDir.resolve(userInput)` bez normalizacji i walidacji.
 - Skutek: możliwe odczytanie plików spoza katalogu `public` przez `../secret_file.txt`.
 
-### 3.2 Zabezpieczona wersja (`Fixed_podatnosc_Cholewinski.java`)
+### 3.2 Zabezpieczona wersja (`SecureFileReader.java`)
 
 Zastosowano następujące mechanizmy:
 
@@ -91,7 +89,9 @@ curl.exe -i "http://localhost:8001/read?file=../secret_file.txt"
 Do sprawozdania dołączono screenshoty:
 
 - `servers_started.png` - serwery uruchomione,
+  ![servers_started](screenshots/servers_started.png)
 - `attacks.png` - przeprowadzenie ataków
+  ![attacks](screenshots/attacks.png)
 
 - Output Vulnerable:
 
